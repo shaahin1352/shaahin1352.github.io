@@ -1,0 +1,153 @@
+{UTF-8}
+adjust=
+	30
+	~	Minute
+	~	29
+	|
+
+change in coffee temp=
+	diff/adjust
+	~	celsius/Minute
+	~		|
+
+coffee temp= INTEG (
+	change in coffee temp,
+		87)
+	~	celsius
+	~		|
+
+room temp=
+	29
+	~	celsius
+	~		|
+
+diff=
+	room temp-coffee temp
+	~	celsius
+	~		|
+
+coffee temperature=
+	coffee temperature lookup(Time/one minute)
+	~	celsius
+	~		|
+
+coffee temperature lookup(
+	[(0,0)-(10,10)],(0,87),(10,72),(20,58),(30,50),(40,45),(50,41),(60,38),(70,35),(80,32\
+		),(90,30),(100,29))
+	~	celsius
+	~		|
+
+one minute=
+	1
+	~	Minute
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Minute
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Minute
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Minute [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Minute [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Arial Narrow|18||0-0-0|0-0-0|0-0-255|-1--1--1|255-255-255|96,96,100,0
+10,1,coffee temperature lookup,402,-26,98,54,8,3,0,56,-1,0,0,0,0-0-0,0-0-0,Arial Narrow|18|B|0-0-0,0,0,0,0,0,0
+10,2,coffee temperature,459,196,64,35,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,3,Time,652,14,40,18,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|||128-128-128,0,0,0,0,0,0
+1,4,1,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+1,5,3,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,6,one minute,753,143,59,22,8,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,7,6,2,0,0,0,0,0,192,0,-1--1--1,,1|(0,0)|
+10,8,coffee temp,627,385,65,31,3,131,0,0,0,0,0,0,0,0,0,0,0,0
+12,9,48,348,369,10,8,0,3,0,0,-1,0,0,0,0,0,0,0,0,0
+1,10,12,8,4,0,0,22,0,0,0,-1--1--1,,1|(511,369)|
+1,11,12,9,100,0,0,22,0,0,0,-1--1--1,,1|(403,369)|
+11,12,0,455,369,6,8,34,3,0,0,1,0,0,0,0,0,0,0,0,0
+10,13,change in coffee temp,455,406,77,29,40,3,0,0,-1,0,0,0,0,0,0,0,0,0
+10,14,room temp,667,511,49,16,8,3,0,0,0,0,0,0,0,0,0,0,0,0
+10,15,diff,477,519,16,16,8,3,0,0,0,0,0,0,0,0,0,0,0,0
+1,16,14,15,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+1,17,8,15,1,0,0,0,0,64,0,-1--1--1,,1|(549,470)|
+1,18,15,13,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+10,19,adjust,326,512,28,16,8,3,0,0,0,0,0,0,0,0,0,0,0,0
+1,20,19,13,0,0,0,0,0,64,0,-1--1--1,,1|(0,0)|
+///---\\\
+:GRAPH coffee_temperature
+:TITLE coffee temperature
+:SCALE
+:VAR coffee temperature
+:DATASET 
+:LINE-WIDTH 2
+:VAR coffee temp
+:DATASET 
+:LINE-WIDTH 2
+
+:GRAPH coffee_temperature_0
+:TITLE coffee temperature
+:X-AXIS coffee temp
+:SCALE
+:VAR change in coffee temp
+:DATASET 
+:LINE-WIDTH 2
+:L<%^E!@
+1:current.vdfx
+4:Time
+5:coffee temperature
+9:current
+19:100,0
+24:0
+25:100
+26:100
+23:0
+15:0,0,0,0,0,0
+27:0,
+34:0,
+42:1
+72:0
+73:0
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:6
+41:0
+95:0
+96:0
+97:0
+77:0
+78:0
+102:1
+93:0
+94:0
+92:0
+91:0
+90:0
+87:0
+75:
+43:
+103:8,8,8,3,8
+105:0,0,0,0,0,0,0,0,0,0
+104:B Nazanin|12||0-0-0|0-0-0|-1--1--1|0-0-255|192-192-192|-1--1--1

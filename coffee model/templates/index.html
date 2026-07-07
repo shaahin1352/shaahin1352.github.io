@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coffee Model</title>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+<h1>Coffee Temperature Model</h1>
+
+
+<label>Room Temperature:
+    <span id="roomTempValue">29</span>
+</label>
+
+<input
+    type="range"
+    id="roomTemp"
+    min="20"
+    max="40"
+    value="29"
+    oninput="roomTempValue.innerHTML=this.value">
+
+<br><br>
+
+<label>Adjust:
+    <span id="adjustValue">30</span>
+</label>
+
+<input
+    type="range"
+    id="adjust"
+    min="10"
+    max="50"
+    value="30"
+    oninput="adjustValue.innerHTML=this.value">
+
+<button onclick="runModel()">
+Run Model
+</button>
+
+<div id="graph"></div>
+
+
+<script src="/static/app.js?v=2"></script>
+
+</body>
+</html>
